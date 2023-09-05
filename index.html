@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+.content {
+  position: fixed;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  padding: 20px;
+}
+
+#myBtn {
+  width: 200px;
+  font-size: 18px;
+  padding: 10px;
+  border: none;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+}
+#more {display: none;}
+
+#myBtn:hover {
+  background: #ddd;
+  color: black;
+}
+</style>
+</head>
+<body>
+
+<video autoplay muted loop id="myVideo">
+  <source src="naturistic.mp4" type="video/mp4">
+  Your browser does not support HTML5 video.
+</video>
+
+<div class="content">
+  <h1>Discovering Nature's Grand Tapestry</h1>
+  <p>In a world filled with wonder and beauty, there exist places that are truly enchanting. Welcome to a realm where mountains reach for the heavens, seas kiss the shores, skies paint a mesmerizing canvas, and snow blankets the land in a pristine embrace.<span id="dots">...</span><span id="more"><br><br>Our journey begins high above the world, where rugged mountains stand as sentinels of time. These colossal giants, weathered by the ages, bear witness to the changing seasons, each layer of snow telling a story of nature's eternal dance.<br><br>As day turns to night, the sky transforms into a canvas of dreams. The setting sun casts a warm glow over the horizon, igniting the heavens with hues of orange and pink. It's a daily masterpiece that reminds us of the artistry in the natural world.</span></p>
+  <button id="myBtn" onclick="myFunct()">Pause</button>
+  <button onclick="myFunction()" id="myBtn">Read more</button>
+</div>
+
+<script>
+var video = document.getElementById("myVideo");
+var btn = document.getElementById("myBtn");
+
+function myFunct() {
+  if (video.paused) {
+    video.play();
+    btn.innerHTML = "Pause";
+  } else {
+    video.pause();
+    btn.innerHTML = "Play";
+  }
+}
+
+function myFunction() {
+  var dots = document.getElementById("dots");
+  var moreText = document.getElementById("more");
+  var btnText = document.getElementById("myBtn");
+
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = "Read more";
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = "Read less";
+    moreText.style.display = "inline";
+  }
+}
+</script>
+
+</body>
+</html>
